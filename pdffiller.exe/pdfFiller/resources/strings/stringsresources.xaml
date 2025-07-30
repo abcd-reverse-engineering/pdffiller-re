@@ -1,0 +1,480 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib">
+  <System:String x:Key="login_dont_have_account">
+    Don't have an account?
+  </System:String>
+  <System:String x:Key="get_started">Create one</System:String>
+  <System:String x:Key="log_in">Log in to pdfFiller</System:String>
+  <System:String x:Key="log_in_button">Log in</System:String>
+  <System:String x:Key="log_in_message">
+    To start working on your documents, enter your pdfFiller, airSlate, or signNow credentials.
+  </System:String>
+  <System:String x:Key="or_continue_with">OR CONTINUE WITH</System:String>
+  <System:String x:Key="forgot_password">Forgot password?</System:String>
+  <System:String x:Key="email_hint">Email</System:String>
+  <System:String x:Key="sign_up_email_hint">Enter email</System:String>
+  <System:String x:Key="pass_hint">Password</System:String>
+  <System:String x:Key="sign_up_pass_hint">Create password</System:String>
+  <System:String x:Key="sign_up">
+    Create your pdfFiller account
+  </System:String>
+  <System:String x:Key="sign_up_button">Create account</System:String>
+  <System:String x:Key="sign_up_message">
+    Edit, sign, and share documents with pdfFiller.
+  </System:String>
+  <System:String x:Key="password_validation">
+    At least 6 characters: UPPER/lowercase and numbers
+  </System:String>
+  <System:String x:Key="accept_button">Acknowledge</System:String>
+  <System:String x:Key="terms_of_service_p1_login">
+    By clicking Log in, you agree to the
+  </System:String>
+  <System:String x:Key="terms_of_service_p1_register">
+    By clicking Create account, you agree to the
+  </System:String>
+  <System:String x:Key="terms_of_service_p2">Terms of service</System:String>
+  <System:String x:Key="terms_of_service_p3">and</System:String>
+  <System:String x:Key="terms_of_service_p4">
+    UPDATED Privacy Policy
+  </System:String>
+  <System:String x:Key="terms_of_service_p5">
+    along with our newsletters
+  </System:String>
+  <System:String x:Key="have_an_account">
+    Already have an account?
+  </System:String>
+  <System:String x:Key="login_v2">Log in</System:String>
+  <System:String x:Key="empty_fields_error_message">
+    Please, proceed all fields
+  </System:String>
+  <System:String x:Key="empty_field_error_message">
+    Please, proceed a field
+  </System:String>
+  <System:String x:Key="email_validation_error_message">
+    Please make sure the email address you entered is correct.
+  </System:String>
+  <System:String x:Key="password_validation_error_message">
+    Password is to small
+  </System:String>
+  <System:String x:Key="password_validation_space_error_message">
+    Password must not contain spaces
+  </System:String>
+  <System:String x:Key="incorrect_credentials_error_message">
+    Email or Password is incorrect
+  </System:String>
+  <System:String x:Key="forgot_password_title">Forgot Password</System:String>
+  <System:String x:Key="send">Send</System:String>
+  <System:String x:Key="enter_your_email">Enter your email:</System:String>
+  <System:String x:Key="support">Support</System:String>
+  <System:String x:Key="skip">Skip</System:String>
+  <System:String x:Key="next">Next</System:String>
+  <System:String x:Key="copy_to_clipboard">Copy To Clipboard</System:String>
+  <System:String x:Key="onboarding_title_1">Manage PDFs</System:String>
+  <System:String x:Key="onboarding_title_2">
+    Share documents easily
+  </System:String>
+  <System:String x:Key="onboarding_title_3">
+    Find any fillable form you need
+  </System:String>
+  <System:String x:Key="onboarding_message_1">
+    Add text, date, images and your signature.
+  </System:String>
+  <System:String x:Key="onboarding_message_2">
+    Send PDFs via email and popular messengers.
+  </System:String>
+  <System:String x:Key="onboarding_message_3">
+    Find and fill out the form you need among tax, legal, HR and other departments in minutes.
+  </System:String>
+  <System:String x:Key="tab_mybox">MY DOCS</System:String>
+  <System:String x:Key="tab_cloud">CLOUD</System:String>
+  <System:String x:Key="tab_inbox">INBOX</System:String>
+  <System:String x:Key="tab_outbox">OUTBOX</System:String>
+  <System:String x:Key="trash">Trash</System:String>
+  <System:String x:Key="find_pdf">Search</System:String>
+  <System:String x:Key="notifications">Notifications</System:String>
+  <System:String x:Key="menu">Menu</System:String>
+  <System:String x:Key="folder_all_documents">My Documents</System:String>
+  <System:String x:Key="folder_unsorted">Unsorted</System:String>
+  <System:String x:Key="folder_encrypted">Encrypted</System:String>
+  <System:String x:Key="folder_templates">Templates</System:String>
+  <System:String x:Key="folder_email">Emails</System:String>
+  <System:String x:Key="folder_email_outbox">Emails/SMS</System:String>
+  <System:String x:Key="folder_faxes">Faxes</System:String>
+  <System:String x:Key="folder_l2f">LinkToFill</System:String>
+  <System:String x:Key="folder_share">Shared by me</System:String>
+  <System:String x:Key="folder_s2s">SendToSign</System:String>
+  <System:String x:Key="folder_shared_with_me">Shared with Me</System:String>
+  <System:String x:Key="folder_signature_request">Signature Request</System:String>
+  <System:String x:Key="folder_usps">USPS Mail</System:String>
+  <System:String x:Key="folder_notarize">Notarize</System:String>
+  <System:String x:Key="folder_dropbox">Dropbox</System:String>
+  <System:String x:Key="folder_google_drive">Google Drive</System:String>
+  <System:String x:Key="folder_box">Box</System:String>
+  <System:String x:Key="folder_one_drive">OneDrive</System:String>
+  <System:String x:Key="folder_suggested_documents">Suggested Documents</System:String>
+  <System:String x:Key="folder_smart_folders">Smart Folders</System:String>
+  <System:String x:Key="empty_folder_message">Nothing here so far</System:String>
+  <System:String x:Key="empty_templates_message">
+    Convert your most-used documents into templates, then manage them here.
+  </System:String>
+  <System:String x:Key="empty_trashbin_message">
+    A deleted document is stored in the Trash Bin until you permanently delete it or restore it.
+  </System:String>
+  <System:String x:Key="empty_inbox_fax_message">
+    Receive documents via fax directly to your pdfFiller account and find them here.
+  </System:String>
+  <System:String x:Key="empty_outbox_fax_message">
+    Send documents via fax from your pdfFiller account, then resend them from here.
+  </System:String>
+  <System:String x:Key="empty_s2s_message">
+    This folder contains the documents that you have sent via SendToSign.
+  </System:String>
+  <System:String x:Key="empty_signature_requested_message">
+    Send documents for signing, then track their status here.
+  </System:String>
+  <System:String x:Key="empty_l2f_message">
+    Collect data, signatures, and payments online with fillable forms, then find the completed forms here.
+  </System:String>
+  <System:String x:Key="empty_inbox_email_message">
+    Documents sent to your pdfFiller inbox will appear here.
+  </System:String>
+  <System:String x:Key="empty_outbox_email_message">
+    Email or text links to documents, then find sent documents here.
+  </System:String>
+  <System:String x:Key="empty_unsorted_message">
+    This folder contains all unsorted documents or documents from previously deleted folders. To Add New Document, please click the plus button.
+  </System:String>
+  <System:String x:Key="empty_usps_message">
+    Send documents via USPS, then track their delivery status here.
+  </System:String>
+  <System:String x:Key="empty_encrypted_message">
+    Data in the Encrypted Folder is protected with an Extra Layer of Encryption and accessible with an additional password that you set using your mobile phone.
+  </System:String>
+  <System:String x:Key="empty_all_documents_message">
+    This folder contains all the documents that can be found in MyBox. Regardless of the folder. To Add New Document, please click the plus button.
+  </System:String>
+  <System:String x:Key="empty_shared_with_me_message">
+    Once someone has shared a document with you, it will appear here.
+  </System:String>
+  <System:String x:Key="empty_share_message">
+    Share documents with others, then change permissions and manage them here.
+  </System:String>
+  <System:String x:Key="side_menu_my_account">My Account</System:String>
+  <System:String x:Key="side_menu_audit_trail">Audit Trail</System:String>
+  <System:String x:Key="side_menu_payment">Pricing</System:String>
+  <System:String x:Key="side_menu_settings">Settings</System:String>
+  <System:String x:Key="side_menu_support">Support</System:String>
+  <System:String x:Key="side_menu_help">Help</System:String>
+  <System:String x:Key="side_menu_about">About</System:String>
+  <System:String x:Key="side_menu_other_apps">Other Apps</System:String>
+  <System:String x:Key="side_menu_logout">Log out</System:String>
+  <System:String x:Key="side_menu_check_update">Check for updates</System:String>
+  <System:String x:Key="action_print">Print</System:String>
+  <System:String x:Key="action_sms">Sms</System:String>
+  <System:String x:Key="action_email">Email</System:String>
+  <System:String x:Key="action_fax">Fax</System:String>
+  <System:String x:Key="action_share">Share</System:String>
+  <System:String x:Key="action_s2s">SendToSign</System:String>
+  <System:String x:Key="action_sign_now">SignNow</System:String>
+  <System:String x:Key="action_l2f">LinkToFill</System:String>
+  <System:String x:Key="action_messenger">Messenger</System:String>
+  <System:String x:Key="action_whatsapp">WhatsApp</System:String>
+  <System:String x:Key="action_viber">Viber</System:String>
+  <System:String x:Key="action_resend">Resend</System:String>
+  <System:String x:Key="action_open">Open</System:String>
+  <System:String x:Key="action_sign">Sign</System:String>
+  <System:String x:Key="action_view">View</System:String>
+  <System:String x:Key="action_copy">Copy</System:String>
+  <System:String x:Key="action_rename">Rename</System:String>
+  <System:String x:Key="action_move">Move</System:String>
+  <System:String x:Key="action_save_as">Save as</System:String>
+  <System:String x:Key="action_delete">Move to Trash Bin</System:String>
+  <System:String x:Key="action_delete_from_trash_bin">Delete</System:String>
+  <System:String x:Key="action_template">Convert to Template</System:String>
+  <System:String x:Key="action_template_revert">Revert Template</System:String>
+  <System:String x:Key="action_empty_pages">Add empty pages</System:String>
+  <System:String x:Key="action_tag">Tag</System:String>
+  <System:String x:Key="action_contact_sender">Contact sender</System:String>
+  <System:String x:Key="action_settings">Settings</System:String>
+  <System:String x:Key="action_status">Status</System:String>
+  <System:String x:Key="action_share_settings">Shared Settings</System:String>
+  <System:String x:Key="action_copy_to_mybox">Copy to MYBOX</System:String>
+  <System:String x:Key="action_move_to_mybox">Move to MYBOX</System:String>
+  <System:String x:Key="action_edit_smart_folder">Edit a Smart Folder</System:String>
+  <System:String x:Key="action_restore">Restore</System:String>
+  <System:String x:Key="action_filled_forms">Filled Forms</System:String>
+  <System:String x:Key="action_delete_smart_folder">Delete Smart Folder</System:String>
+  <System:String x:Key="action_attachments">Attachments</System:String>
+  <System:String x:Key="action_share_template">Share Template</System:String>
+  <System:String x:Key="action_clear_fields">
+    Clear Filled-in Fields
+  </System:String>
+  <System:String x:Key="action_create_form">
+    Create from Template
+  </System:String>
+  <System:String x:Key="action_send_to_cloud">Send to Cloud</System:String>
+  <System:String x:Key="action_download">Download</System:String>
+  <System:String x:Key="action_save_to_mybox">Save to MYBOX</System:String>
+  <System:String x:Key="action_export">Export</System:String>
+  <System:String x:Key="action_track_document">Track Document</System:String>
+  <System:String x:Key="action_info">Info</System:String>
+  <System:String x:Key="actions_export">Export</System:String>
+  <System:String x:Key="actions_manage">Manage</System:String>
+  <System:String x:Key="delete_from_trash_bin_title">Delete Document?</System:String>
+  <System:String x:Key="delete_from_trash_bin_message">
+    This document will be deleted forever and cannot be restored. Delete now?
+  </System:String>
+  <System:String x:Key="or">or</System:String>
+  <System:String x:Key="search_in_library">Search in Library</System:String>
+  <System:String x:Key="search_for_documents">Find your documents</System:String>
+  <System:String x:Key="search_for_documents_hint">
+    Enter document name or description
+  </System:String>
+  <System:String x:Key="top_forms">Top 100 Forms</System:String>
+  <System:String x:Key="last_opened">Last opened:</System:String>
+  <System:String x:Key="recent_documents">RECENT DOCUMENTS</System:String>
+  <System:String x:Key="documents_found">documents found</System:String>
+  <System:String x:Key="sort_by">Sort By</System:String>
+  <System:String x:Key="default_error_title">Error</System:String>
+  <System:String x:Key="default_error_message">
+    Oops. Something went wrong.\nPlease try again later
+  </System:String>
+  <System:String x:Key="add_document">Add Document</System:String>
+  <System:String x:Key="add_document_message">
+    Drag and Drop Documents Here to Upload
+  </System:String>
+  <System:String x:Key="select_from_device">Select From Device</System:String>
+  <System:String x:Key="refresh">Refresh</System:String>
+  <System:String x:Key="to_my_docs">Go to my documents</System:String>
+  <System:String x:Key="logout_title">Log out</System:String>
+  <System:String x:Key="logout_message">
+    Are you sure you want to log out?
+  </System:String>
+  <System:String x:Key="confirm">Confirm</System:String>
+  <System:String x:Key="cancel">Cancel</System:String>
+  <System:String x:Key="clear">Clear</System:String>
+  <System:String x:Key="fm_dmn">
+    Date modified: Newest
+  </System:String>
+  <System:String x:Key="fm_dmo">
+    Date modified: Oldest
+  </System:String>
+  <System:String x:Key="fm_dan">Date added: Newest</System:String>
+  <System:String x:Key="fm_dao">Date added: Oldest</System:String>
+  <System:String x:Key="fm_drn">
+    Date Received: Newest
+  </System:String>
+  <System:String x:Key="fm_dro">
+    Date Received: Oldest
+  </System:String>
+  <System:String x:Key="fm_dsn">Date Sent: Newest</System:String>
+  <System:String x:Key="fm_dso">Date Sent: Oldest</System:String>
+  <System:String x:Key="fm_fna">Name: A-Z</System:String>
+  <System:String x:Key="fm_fnz">Name: Z-A</System:String>
+  <System:String x:Key="fm_fa">From: A-Z</System:String>
+  <System:String x:Key="fm_fz">From: Z-A</System:String>
+  <System:String x:Key="fm_ta">To: A-Z</System:String>
+  <System:String x:Key="fm_tz">To: Z-A</System:String>
+  <System:String x:Key="fm_s">Status</System:String>
+  <System:String x:Key="fm_r">Read</System:String>
+  <System:String x:Key="fm_ur">Unread</System:String>
+  <System:String x:Key="fm_dcn">
+    Date Created: Newest
+  </System:String>
+  <System:String x:Key="fm_dco">
+    Date Created: Oldest
+  </System:String>
+  <System:String x:Key="fm_sgn">Signed</System:String>
+  <System:String x:Key="fm_usgn">Unsigned</System:String>
+  <System:String x:Key="fm_dshn">Date Shared: Newest</System:String>
+  <System:String x:Key="fm_dsho">Date Shared: Oldest</System:String>
+  <System:String x:Key="fm_email">Email Address</System:String>
+  <System:String x:Key="fm_ip">IP</System:String>
+  <System:String x:Key="fm_newest">Newest</System:String>
+  <System:String x:Key="fm_oldest">Oldest</System:String>
+  <System:String x:Key="fm_name">Name</System:String>
+  <System:String x:Key="add_document_upload">Select on PC</System:String>
+  <System:String x:Key="add_document_search">Search online</System:String>
+  <System:String x:Key="save_as_pdf">PDF Document</System:String>
+  <System:String x:Key="save_as_doc">Word Document</System:String>
+  <System:String x:Key="save_as_excel">Excel Spreadsheet</System:String>
+  <System:String x:Key="save_as_ppt">
+    PowerPoint Presentation
+  </System:String>
+  <System:String x:Key="save_as_image">Image</System:String>
+  <System:String x:Key="download">Download</System:String>
+  <System:String x:Key="ok">Ok</System:String>
+  <System:String x:Key="delete_title">Delete</System:String>
+  <System:String x:Key="delete_title_folder">Move to Trash Bin?</System:String>
+  <System:String x:Key="delete_title_folder_common">Delete Folder?</System:String>
+  <System:String x:Key="delete_title_project">Move to Trash Bin?</System:String>
+  <System:String x:Key="delete_title_project_common">Delete Document?</System:String>
+  <System:String x:Key="delete_message">
+    Documents are stored in the Trash Bin until you decide to restore or delete them forever.
+  </System:String>
+  <System:String x:Key="delete_message_common">
+    You`ll lose access to the selected document.
+  </System:String>
+  <System:String x:Key="delete_message_folder">
+    Documents are stored in the Trash Bin until you decide to restore or delete them forever.
+  </System:String>
+  <System:String x:Key="delete_message_folder_common">
+    This folder will be deleted forever and can’t be restored. Delete now?
+  </System:String>
+  <System:String x:Key="delete_message_s2s_sent">
+    Once you delete this signature request, signers won’t be able to open or e-sign the document. They will get an email that you’ve deleted the signature request.
+  </System:String>
+  <System:String x:Key="delete_message_s2s_requested">
+    Once you delete this signature request, you won’t be able to open or e-sign the document. The sender will get an email that you’ve deleted the document without signing.
+  </System:String>
+  <System:String x:Key="delete_title_s2s">
+    Delete signature request?
+  </System:String>
+  <System:String x:Key="delete_title_shared_with_me">
+    Delete shared document?
+  </System:String>
+  <System:String x:Key="delete_title_shared_by_me">Unshare document?</System:String>
+  <System:String x:Key="delete_message_shared_with_me">
+    Once you delete this document, you won’t be able to view or edit it anymore. Delete now?
+  </System:String>
+  <System:String x:Key="delete_message_shared_by_me">
+    Once you unshare this document, only you will be able to view or edit it in My Docs. Delete now?
+  </System:String>
+  <System:String x:Key="delete_message_outbox_sms_emal">
+    This document will be deleted from the Outbox. Still, you’ll be able to open it in My Docs.
+  </System:String>
+  <System:String x:Key="forgot_password_message">
+    Don’t worry, enter the email linked to your account and we’ll send you a password reset link.
+  </System:String>
+  <System:String x:Key="continue">Continue</System:String>
+  <System:String x:Key="reset_password">Reset password</System:String>
+  <System:String x:Key="login_error_title">
+    Couldn’t find your pdfFiller account
+  </System:String>
+  <System:String x:Key="login_error_message">
+    Please double-check your email and password and try again.
+  </System:String>
+  <System:String x:Key="rename_title">Rename Form</System:String>
+  <System:String x:Key="rename_message">
+    Enter the new name for this form
+  </System:String>
+  <System:String x:Key="rename_folder_title">Rename Folder</System:String>
+  <System:String x:Key="rename_folder_message">
+    Enter the new name for this folder
+  </System:String>
+  <System:String x:Key="create_from_template_title">
+    Create From Template
+  </System:String>
+  <System:String x:Key="create_from_template_message">
+    Enter the name for your new document
+  </System:String>
+  <System:String x:Key="connection_error_title">You’re offline</System:String>
+  <System:String x:Key="connection_error_message">
+    To continue using pdfFiller, connect to the internet.
+  </System:String>
+  <System:String x:Key="editor_exit_title">Go back to My Docs</System:String>
+  <System:String x:Key="editor_exit_message">
+    Do you want to save the changes made to this document?
+  </System:String>
+  <System:String x:Key="editor_yes_button">Continue editing</System:String>
+  <System:String x:Key="editor_no_button">Go without saving</System:String>
+  <System:String x:Key="l2f_go_to_web_title">Coming soon</System:String>
+  <System:String x:Key="l2f_go_to_web_message">
+    Link2Fill is not currently available on our desktop app. Please use the pdfFiller web version.
+  </System:String>
+  <System:String x:Key="start_search_title">
+    Search for your documents
+  </System:String>
+  <System:String x:Key="start_search_message">
+    Quickly find a document stored in your account. The documents from your Encrypted folder won’t appear in search results.
+  </System:String>
+  <System:String x:Key="empty_search_title">
+    Sorry, nothing came up
+  </System:String>
+  <System:String x:Key="empty_search_message">
+    Try again with a different search query or using more general terms.
+  </System:String>
+  <System:String x:Key="file_download_error_message">
+    Sorry, but some problem was occured while proccesing Your document
+  </System:String>
+  <System:String x:Key="permission_result_message">
+    Available for subscribed users only
+  </System:String>
+  <System:String x:Key="biometric_result_availavle">
+    Fingerprint verification is available
+  </System:String>
+  <System:String x:Key="biometric_result_busy">
+    Biometric device is busy
+  </System:String>
+  <System:String x:Key="biometric_result_no_device">
+    No biometric device found
+  </System:String>
+  <System:String x:Key="biometric_result_disabled_by_policy">
+    Biometric verification is disabled by policy
+  </System:String>
+  <System:String x:Key="biometric_result_not_configured">
+    No fingerprints registered. Please add a fingerprint to the fingerprint database and try again
+  </System:String>
+  <System:String x:Key="biometric_result_unavailable">
+    Fingerprints verification is currently unavailable
+  </System:String>
+  <System:String x:Key="biometric_result_check_exception">
+    Fingerprint authentication availability check failed:
+  </System:String>
+  <System:String x:Key="biometric_result_verified">
+    Fingerprint verified
+  </System:String>
+  <System:String x:Key="biometric_result_canceled">
+    Fingerprint authentication canceled
+  </System:String>
+  <System:String x:Key="biometric_result_too_many_attempts">
+    There have been too many failed attempts. Fingerprint authentication canceled
+  </System:String>
+  <System:String x:Key="biometric_result_request_exception">
+    Fingerprint authentication availability check failed:
+  </System:String>
+  <System:String x:Key="biometric_request_default_message">
+    Please provide fingerprint verification
+  </System:String>
+  <System:String x:Key="empty_trash_dialog_title">Empty Trash</System:String>
+  <System:String x:Key="empty_trash_dialog_message">
+    All documents in the Trash Bin will be deleted forever and can’t be restored. Empty now?
+  </System:String>
+  <System:String x:Key="empty_trash_dialog_button">Empty Trash Bin</System:String>
+  <System:String x:Key="touch_id">Touch ID</System:String>
+  <System:String x:Key="auto_update">Auto Update</System:String>
+  <System:String x:Key="file_size_error_title">
+    Document is too large
+  </System:String>
+  <System:String x:Key="file_size_error_message">
+    You can upload documents of up to 25 MB in size. Select another one and try again.
+  </System:String>
+  <System:String x:Key="timeout_error">
+    Sorry, but time alloted for connection came out, try again.
+  </System:String>
+  <System:String x:Key="forgot_password_error_message">
+    Please make sure the email address you entered is correct.
+  </System:String>
+  <System:String x:Key="file_upload_error_message">
+    Project loading error
+  </System:String>
+  <System:String x:Key="social_auth_error_message">
+    Sorry, problem was occured during fetching your data.
+  </System:String>
+  <System:String x:Key="empty_cloud_folder_message">
+    Documents from your %s account will appear here once you import them to pdfFiller.
+  </System:String>
+  <System:String x:Key="trash_bin">Trash Bin</System:String>
+  <System:String x:Key="payment_dialog_title">Subscribe Now</System:String>
+  <System:String x:Key="payment_dialog_message">
+    Active subscription required.
+  </System:String>
+  <System:String x:Key="payment_dialog_yes_button">Subscribe</System:String>
+  <System:String x:Key="update_dialog_title">
+    A new version of pdfFiller is available!
+  </System:String>
+  <System:String x:Key="update_dialog_message">
+    Version {0} is available now. You are using version {1}. Do you want to update pdfFiller now?
+  </System:String>
+</ResourceDictionary>

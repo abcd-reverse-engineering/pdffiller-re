@@ -1,0 +1,148 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:converters="clr-namespace:pdfFiller.Converters"
+                    xmlns:data="clr-namespace:pdfFiller.Model.Pojo.Data.Structure"
+                    xmlns:prop="clr-namespace:pdfFiller.AttachedProperties"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Style x:Key="ThreeDotsButtonStyle" TargetType="{x:Type Button}">
+    <Setter Property="ContentControl.Content" Value=" "/>
+    <Setter Property="FrameworkElement.Cursor" Value="Hand"/>
+    <Setter Property="prop:ContextMenuAttachedProperties.IsLeftClickChildContextMenu" Value="True"/>
+    <Setter Property="Control.Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type Button}">
+          <Grid>
+            <Border Padding="16 0 16 0" Height="{TemplateBinding FrameworkElement.Height}" Width="40">
+              <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Orientation="Vertical">
+                <Ellipse Width="4" Height="4" Fill="#666" Margin="0 0 0 0"/>
+                <Ellipse Width="4" Height="4" Fill="#666" Margin="0 2 0 0"/>
+                <Ellipse Width="4" Height="4" Fill="#666" Margin="0 3 0 0"/>
+              </StackPanel>
+            </Border>
+            <ContentPresenter/>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="ProjectStyle" TargetType="{x:Type ListViewItem}">
+    <Setter Property="FrameworkElement.ContextMenu" Value="{DynamicResource ActionsMenuStyle}"/>
+    <Setter Property="FrameworkElement.Cursor" Value="Hand"/>
+    <Setter Property="Control.Template">
+      <Setter.Value>
+        <ControlTemplate x:Name="ProjectItem" TargetType="{x:Type ListViewItem}">
+          <FrameworkTemplate.Resources>
+            <converters:BooleanVisibilityConverter x:Key="booleanVisibilityConverter"/>
+          </FrameworkTemplate.Resources>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="auto"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0">
+              <Grid>
+                <Image Margin="8" Width="16" Height="20" Source="{Binding ProjectIcon}"/>
+                <Image Source="/pdfFiller;component/Resources/Images/Projects/template_icon.png" Width="10" Height="10"
+                       Margin="11 15 0 0"
+                       Visibility="{Binding IsTemplate, Converter={StaticResource booleanVisibilityConverter}}"/>
+              </Grid>
+              <Ellipse Margin="0 2 0 0" Fill="Red" Width="4" Height="4" VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Visibility="{Binding IsViewed, Converter={StaticResource booleanVisibilityConverter}}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="0 10" VerticalAlignment="Center" Grid.Column="1">
+              <TextBlock MaxWidth="600" HorizontalAlignment="Left" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"
+                         Foreground="#222" FontFamily="{DynamicResource Medium}" Text="{Binding Name}"/>
+              <TextBlock Foreground="#a3a3a3" FontSize="10" Margin="0 4 0 0" FontFamily="{DynamicResource Light}"
+                         Text="{Binding Date}"/>
+            </StackPanel>
+            <Button Style="{StaticResource ThreeDotsButtonStyle}" HorizontalAlignment="Right" Grid.Column="2"/>
+            <ContentPresenter Grid.ColumnSpan="3"/>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="ThreeLineProjectsStyle" TargetType="{x:Type ListViewItem}"
+         BasedOn="{StaticResource ProjectStyle}">
+    <Setter Property="Control.Template">
+      <Setter.Value>
+        <ControlTemplate x:Name="ProjectItem" TargetType="{x:Type ListViewItem}">
+          <Grid Margin="0 8">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="auto"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical">
+              <Grid VerticalAlignment="Top">
+                <Image Margin="8" Width="16" Height="20" Source="{Binding ProjectIcon}"/>
+                <Image Source="/pdfFiller;component/Resources/Images/Projects/template_icon.png" Width="10" Height="10"
+                       Margin="11 15 0 0"
+                       Visibility="{Binding IsTemplate, Converter={StaticResource visibilityConverter}}"/>
+              </Grid>
+              <Ellipse Fill="Red" Margin="0 2 0 0" Width="4" Height="4" VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Visibility="{Binding IsViewed, Converter={StaticResource visibilityConverter}}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1">
+              <TextBlock FontSize="14" Foreground="#222" FontFamily="{DynamicResource Medium}" Text="{Binding SenderEmail}"/>
+              <TextBlock FontSize="12" Foreground="#444444" FontFamily="{DynamicResource Light}" Text="{Binding Name}"/>
+              <TextBlock FontSize="12" Foreground="#a0a0a0" FontFamily="{DynamicResource Light}" Margin="0 2 0 0"
+                         Text="{Binding Date}"/>
+            </StackPanel>
+            <Button Style="{StaticResource ThreeDotsButtonStyle}" HorizontalAlignment="Right" Grid.Column="2"/>
+            <ContentPresenter Grid.ColumnSpan="3"/>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="InboxS2SProjectsStyle" TargetType="{x:Type ListViewItem}"
+         BasedOn="{StaticResource ProjectStyle}">
+    <Setter Property="Control.Template">
+      <Setter.Value>
+        <ControlTemplate x:Name="ProjectItem" TargetType="{x:Type ListViewItem}">
+          <Grid Margin="0 8">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="auto"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="auto"/>
+              <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical">
+              <Grid VerticalAlignment="Top">
+                <Image Margin="8" Width="16" Height="20" Source="{Binding ProjectIcon}"/>
+                <Image Source="/pdfFiller;component/Resources/Images/Projects/template_icon.png" Width="10" Height="10"
+                       Margin="11 15 0 0"
+                       Visibility="{Binding IsTemplate, Converter={StaticResource visibilityConverter}}"/>
+              </Grid>
+              <Ellipse Fill="Red" Margin="0 2 0 0" Width="4" Height="4" VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Visibility="{Binding IsViewed, Converter={StaticResource visibilityConverter}}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1">
+              <TextBlock FontSize="14" Foreground="#222" FontFamily="{DynamicResource Medium}" Text="{Binding SenderEmail}"/>
+              <TextBlock FontSize="12" Foreground="#444444" FontFamily="{DynamicResource Light}" Text="{Binding Name}"/>
+              <TextBlock FontSize="12" Foreground="#a0a0a0" FontFamily="{DynamicResource Light}" Margin="0 2 0 0"
+                         Text="{Binding Date}"/>
+            </StackPanel>
+            <Image Margin="8" Width="16" Height="20" Grid.Column="2" VerticalAlignment="Center"
+                   Source="{Binding ProjectStatusIcon}"/>
+            <Button Style="{StaticResource ThreeDotsButtonStyle}" HorizontalAlignment="Right" Grid.Column="3"/>
+            <ContentPresenter Grid.ColumnSpan="3"/>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <DataTemplate x:Key="ProjectsTemplate">
+    <ListViewItem Style="{StaticResource ProjectStyle}"/>
+  </DataTemplate>
+  <DataTemplate x:Key="InboxS2SProjectsTemplate">
+    <ListViewItem Style="{StaticResource InboxS2SProjectsStyle}"/>
+  </DataTemplate>
+  <DataTemplate x:Key="ThreeLineProjectsTemplate">
+    <ListViewItem Style="{StaticResource ThreeLineProjectsStyle}"/>
+  </DataTemplate>
+</ResourceDictionary>

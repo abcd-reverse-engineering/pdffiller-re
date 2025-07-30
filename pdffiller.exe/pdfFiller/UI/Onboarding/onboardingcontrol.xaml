@@ -1,0 +1,37 @@
+<UserControl x:Class="pdfFiller.UI.Onboarding.OnBoardingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:View="clr-namespace:pdfFiller.Utils.View"
+             xmlns:viewModel="clr-namespace:pdfFiller.UI.Onboarding"
+             Background="#fff">
+  <FrameworkElement.DataContext>
+    <viewModel:OnboardingViewModel/>
+  </FrameworkElement.DataContext>
+  <Viewbox>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="auto"/>
+      </Grid.RowDefinitions>
+      <Button HorizontalAlignment="Right" Background="Transparent" BorderBrush="Transparent"
+              Command="{Binding SkipCommand}">
+        <TextBlock TextAlignment="Right" Text="{StaticResource skip}" HorizontalAlignment="Right" Margin="16"
+                   Foreground="#abb5be" FontSize="16" FontFamily="Microsoft YaHei UI Light"/>
+      </Button>
+      <StackPanel Grid.Row="1">
+        <Image Width="200" Height="200" Margin="0 20 0 0" Source="{Binding CurrentOnboardingImage}"/>
+        <TextBlock TextWrapping="Wrap" Width="300" FontSize="18" TextAlignment="Center" Margin="0 10 0 0"
+                   FontFamily="Microsoft YaHei UI" Text="{Binding CurrentOnboardingTitle}"/>
+        <TextBlock TextWrapping="Wrap" Width="300" FontSize="12" TextAlignment="Center" Margin="0 10 0 0"
+                   FontFamily="Microsoft YaHei UI Light" Text="{Binding CurrentOnboardingMessage}"/>
+        <Button Width="200" Margin="0 10" Style="{StaticResource OrangeButton}" Content="{DynamicResource next}"
+                Command="{Binding NextCommand}"/>
+      </StackPanel>
+      <View:IndicatorsControl Margin="0 20 0 20" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"
+                              ItemsCount="{Binding OnboardingItemsSize}" SelectedItem="{Binding CurrentOnboardingIndex}"/>
+    </Grid>
+  </Viewbox>
+</UserControl>

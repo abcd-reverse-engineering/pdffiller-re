@@ -1,0 +1,21 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <FontFamily x:Key="Medium">
+    pack://application:,,,/pdfFiller;component/Resources/Fonts/SF_UI_Medium.ttf #SF UI Display Medium
+  </FontFamily>
+  <FontFamily x:Key="Thin">
+    pack://application:,,,/pdfFiller;component/Resources/Fonts/SF_UI_Thin.ttf #SF UI Display Thin
+  </FontFamily>
+  <FontFamily x:Key="Bold">
+    pack://application:,,,/pdfFiller;component/Resources/Fonts/SF_UI_Bold.ttf #SF UI Display Bold
+  </FontFamily>
+  <FontFamily x:Key="Regular">
+    pack://application:,,,/pdfFiller;component/Resources/Fonts/SF_UI_Regular.ttf #SF UI Display Regular
+  </FontFamily>
+  <FontFamily x:Key="Ultralight">
+    pack://application:,,,/pdfFiller;component/Resources/Fonts/SF_UI_Ultralight.ttf #SF UI Display Ultralight
+  </FontFamily>
+  <FontFamily x:Key="Light">
+    pack://application:,,,/pdfFiller;component/Resources/Fonts/SF_UI_Light.otf #SF UI Display Light
+  </FontFamily>
+</ResourceDictionary>

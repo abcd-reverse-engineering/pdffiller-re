@@ -1,0 +1,26 @@
+<UserControl x:Class="pdfFiller.Dialogs.Dev.DevModeDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:pdfFiller.Dialogs.Dev"
+             xmlns:prop="clr-namespace:pdfFiller.AttachedProperties"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             MinWidth="300" Background="White">
+  <FrameworkElement.DataContext>
+    <local:DevModeDialogViewModel/>
+  </FrameworkElement.DataContext>
+  <Grid Margin="16">
+    <StackPanel Orientation="Vertical">
+      <TextBlock Text="Email" Margin="0 8 0 0" FontFamily="{DynamicResource Thin}"/>
+      <TextBox Margin="0 8" FontFamily="{DynamicResource Medium}" Text="{Binding URL, Mode=TwoWay}"/>
+      <Button Content="Confirm" Margin="0 8" Command="{Binding ConfirmCommand}"/>
+      <Button Content="Erase Token" Margin="0 8" Command="{Binding EraseTokenCommand}"/>
+    </StackPanel>
+    <Button Style="{StaticResource ImageButton}" Background="Transparent" Width="16" BorderBrush="Transparent"
+            Command="{x:Static md:DialogHost.CloseDialogCommand}" Height="16" Margin="0,8,8,0"
+            VerticalAlignment="Top" HorizontalAlignment="Right"
+            prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/close.png"
+            Grid.Column="1"/>
+  </Grid>
+</UserControl>

@@ -1,0 +1,829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: D:\pdfFiller\pdfFiller.exe-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{25A2FF57-F122-4318-8780-A5FD99F8B53D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>pdfFiller</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>pdfFiller</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoUpdater.NET">
+      <HintPath>lib\AutoUpdater.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceId">
+      <HintPath>lib\DeviceId.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceId.Windows">
+      <HintPath>lib\DeviceId.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceId.Windows.Mmi">
+      <HintPath>lib\DeviceId.Windows.Mmi.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf">
+      <HintPath>lib\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.WebView2.Core">
+      <HintPath>lib\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf">
+      <HintPath>lib\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors">
+      <HintPath>lib\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Refit">
+      <HintPath>lib\Refit.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector">
+      <HintPath>lib\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Reactive">
+      <HintPath>lib\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.WindowsRuntime" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commnands\RestApiLoginCommand.cs" />
+    <Compile Include="WebWindow.xaml.cs">
+      <DependentUpon>webwindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>app.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>mainwindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="obj\Release\RefitInternalGenerated\PreserveAttribute.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="Model\UserDataStorage.cs" />
+    <Compile Include="obj\Release\data_manager\model\LoginResponse.cs" />
+    <Compile Include="obj\Release\RestApiInterface.cs" />
+    <Compile Include="Model\Api\DataProvider.cs" />
+    <Compile Include="Model\Api\ApiConstants.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Search\BaseSearchViewModel.cs" />
+    <Compile Include="ViewModel\Search\IDataProvider.cs" />
+    <Compile Include="ViewModel\Search\SearchObserver.cs" />
+    <Compile Include="ViewModel\Handler\ErrorDelegate.cs" />
+    <Compile Include="Utils\AutoUpdateManager.cs" />
+    <Compile Include="Utils\AddressListener.cs" />
+    <Compile Include="Utils\CollectioncExtension.cs" />
+    <Compile Include="Utils\EncryptionHelper.cs" />
+    <Compile Include="Utils\FileUtils.cs" />
+    <Compile Include="Utils\FileAssociationHandler.cs" />
+    <Compile Include="Utils\ListDivider.cs" />
+    <Compile Include="Utils\MainControlNavigationHelper.cs" />
+    <Compile Include="Utils\NativeMethods.cs" />
+    <Compile Include="Utils\SessionTracker.cs" />
+    <Compile Include="Utils\WebModuleConstants.cs" />
+    <Compile Include="Utils\DeviceUtils.cs" />
+    <Compile Include="Utils\PasswordBoxUtils.cs" />
+    <Compile Include="Utils\ResourcesUtils.cs" />
+    <Compile Include="Utils\RoutedEventTrigger.cs" />
+    <Compile Include="Utils\UIHelper.cs" />
+    <Compile Include="Utils\WPFValidators\EmailWPFValidationRule.cs" />
+    <Compile Include="Utils\Validators\IValidator.cs" />
+    <Compile Include="Utils\Validators\IValidationRule.cs" />
+    <Compile Include="Utils\Validators\ValidationRulesCollection.cs" />
+    <Compile Include="Utils\Validators\Validator.cs" />
+    <Compile Include="Utils\View\ListViewSelectionItemChangedOnMouseUp.cs" />
+    <Compile Include="Utils\View\IndicatorsControl.xaml.cs">
+      <DependentUpon>viewindicatorscontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\View\Loader.xaml.cs">
+      <DependentUpon>viewloader.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\Uploader\FileUploader.cs" />
+    <Compile Include="Utils\Biometric\BiometricManager.cs" />
+    <Compile Include="Utils\Biometric\BiometricState.cs" />
+    <Compile Include="Utils\Biometric\BiometricUtils.cs" />
+    <Compile Include="UI\Splash\SplashViewModel.cs" />
+    <Compile Include="UI\Splash\SplashControl.xaml.cs">
+      <DependentUpon>splashsplashcontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\EmptyFolders\EmptyFolderViewModel.cs" />
+    <Compile Include="UI\EmptyFolders\EmptyFolderCollection.cs" />
+    <Compile Include="UI\EmptyFolders\CustomEmptyFolderFactory.cs" />
+    <Compile Include="UI\EmptyFolders\EmptyInboxEmailFolderViewModel.cs" />
+    <Compile Include="UI\EmptyFolders\EmptyFolder.xaml.cs">
+      <DependentUpon>emptyfoldersemptyfolder.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\EmptyFolders\EmptyInboxEmailFolder.xaml.cs">
+      <DependentUpon>emptyfoldersemptyinboxemailfolder.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Toolbar\ToolbarControl.xaml.cs">
+      <DependentUpon>toolbartoolbarcontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Toolbar\ToolbarViewModel.cs" />
+    <Compile Include="UI\FilesList\FilesListControl.xaml.cs">
+      <DependentUpon>fileslistfileslistcontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\FilesList\FilesListViewModel.cs" />
+    <Compile Include="UI\Onboarding\OnboardingItem.cs" />
+    <Compile Include="UI\Onboarding\OnboardingViewModel.cs" />
+    <Compile Include="UI\Onboarding\OnboardingControl.xaml.cs">
+      <DependentUpon>onboardingonboardingcontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\SideMenu\SideMenuItem.cs" />
+    <Compile Include="UI\SideMenu\SideMenuItemCollection.cs" />
+    <Compile Include="UI\SideMenu\SideMenuControl.xaml.cs">
+      <DependentUpon>sidemenusidemenucontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\SideMenu\SideMenuViewModel.cs" />
+    <Compile Include="UI\Recents\RecentsControl.xaml.cs">
+      <DependentUpon>recentsrecentscontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Recents\RecentsViewModel.cs" />
+    <Compile Include="UI\TrashBin\TrashBinDeleteDialogViewModel.cs" />
+    <Compile Include="UI\TrashBin\TrashBinToolbarViewModel.cs" />
+    <Compile Include="UI\TrashBin\TrashBinFilesListViewModel.cs" />
+    <Compile Include="UI\TrashBin\TrashBinControl.xaml.cs">
+      <DependentUpon>trashbintrashbincontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\TrashBin\TrashBinFoldersViewModel.cs" />
+    <Compile Include="UI\TrashBin\TrashBinViewModel.cs" />
+    <Compile Include="UI\Main\MainControl.xaml.cs">
+      <DependentUpon>mainmaincontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Main\MainControlContent.cs" />
+    <Compile Include="UI\Main\MainViewModel.cs" />
+    <Compile Include="UI\JustFolders\JustFoldersControl.xaml.cs">
+      <DependentUpon>justfoldersjustfolderscontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\JustFolders\JustFoldersViewModel.cs" />
+    <Compile Include="UI\FindPdf\FindPdfFilesListViewModel.cs" />
+    <Compile Include="UI\FindPdf\FindPdfViewModel.cs" />
+    <Compile Include="UI\FindPdf\FindPdfControll.xaml.cs">
+      <DependentUpon>findpdffindpdfcontroll.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\BottomMenu\BottomMenuControl.xaml.cs">
+      <DependentUpon>bottommenubottommenucontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\BottomMenu\BottomMenuViewModel.cs" />
+    <Compile Include="UI\TabsFolders\Tab.cs" />
+    <Compile Include="obj\Release\UI\TabsFolders\TabCustomizer.cs" />
+    <Compile Include="UI\TabsFolders\TabCustomizer.cs" />
+    <Compile Include="UI\TabsFolders\1TabCustomizer.cs" />
+    <Compile Include="UI\TabsFolders\2TabCustomizer.cs" />
+    <Compile Include="UI\TabsFolders\3TabCustomizer.cs" />
+    <Compile Include="UI\TabsFolders\TabsController.cs" />
+    <Compile Include="UI\TabsFolders\TabsAndFoldersViewModel.cs" />
+    <Compile Include="UI\TabsFolders\TabsAndFoldersControl.xaml.cs">
+      <DependentUpon>tabsfolderstabsandfolderscontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\TabsFolders\StartBehaviour\IBehaviour.cs" />
+    <Compile Include="UI\TabsFolders\StartBehaviour\LoadMyDocsBehaviour.cs" />
+    <Compile Include="UI\TabsFolders\StartBehaviour\UploadFileBehaviour.cs" />
+    <Compile Include="UI\MyDocs\RenameProjectDialogViewModel.cs" />
+    <Compile Include="UI\MyDocs\MyDocsDeleteDialogViewModel.cs" />
+    <Compile Include="UI\MyDocs\MyDocsFilesListViewModel.cs" />
+    <Compile Include="UI\MyDocs\MyDocsToolbarViewModel.cs" />
+    <Compile Include="UI\MyDocs\MyDocsControl.xaml.cs">
+      <DependentUpon>mydocsmydocscontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\ContextMenus\SortMenu\SortMenuItem.cs" />
+    <Compile Include="UI\ContextMenus\SortMenu\SortMenuItemsManager.cs" />
+    <Compile Include="UI\ContextMenus\SortMenu\SortMenuViewModel.cs" />
+    <Compile Include="UI\ContextMenus\AddDocumentMenu\AddDocumentMenuViewModel.cs" />
+    <Compile Include="UI\ContextMenus\AddDocumentMenu\AddDocumentType.cs" />
+    <Compile Include="UI\ContextMenus\AddDocumentMenu\AddDocumentTypesManager.cs" />
+    <Compile Include="UI\ContextMenus\Settings\SettingMenuItem.cs" />
+    <Compile Include="UI\ContextMenus\Settings\SettingsMenuViewModel.cs" />
+    <Compile Include="UI\ContextMenus\ActionsMenu\ActionsManager.cs" />
+    <Compile Include="UI\ContextMenus\ActionsMenu\CheckPermissionManager.cs" />
+    <Compile Include="UI\ContextMenus\ActionsMenu\ActionMenuItem.cs" />
+    <Compile Include="UI\ContextMenus\ActionsMenu\ActionMenuItemsManager.cs" />
+    <Compile Include="UI\ContextMenus\ActionsMenu\Constants.cs" />
+    <Compile Include="UI\ContextMenus\ActionsMenu\ActionsMenuViewModel.cs" />
+    <Compile Include="UI\ContextMenus\ActionsMenu\MenuSeparator.cs" />
+    <Compile Include="UI\ContextMenus\ActionsMenu\ProjectMenu\ProjectActionsManager.cs" />
+    <Compile Include="UI\ContextMenus\ActionsMenu\FolderMenu\FolderActionsManager.cs" />
+    <Compile Include="UI\WebView\WebView.cs" />
+    <Compile Include="UI\TOS\TOSControl.xaml.cs">
+      <DependentUpon>tostoscontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\TOS\TOSViewModel.cs" />
+    <Compile Include="UI\Editor\EditorControl.xaml.cs">
+      <DependentUpon>editoreditorcontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\AppStartUI\UserStartFlowViewModel.cs" />
+    <Compile Include="UI\AppStartUI\SignUp\SignUpViewModel.cs" />
+    <Compile Include="UI\AppStartUI\SignUp\SignUpControl.xaml.cs">
+      <DependentUpon>signupsignupcontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\AppStartUI\Login\LoginViewModel.cs" />
+    <Compile Include="UI\AppStartUI\Login\LoginControl.xaml.cs">
+      <DependentUpon>loginlogincontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\AppStartUI\SocialAuth\SocialAuthControl.xaml.cs">
+      <DependentUpon>socialauthsocialauthcontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\AppStartUI\SocialAuth\SocialAuthControlFactory.cs" />
+    <Compile Include="UI\AppStartUI\SocialAuth\SocialAuthCredentialsListener.cs" />
+    <Compile Include="UI\AppStartUI\SocialAuth\SocialAuthManager.cs" />
+    <Compile Include="UI\AppStartUI\SocialAuth\SocialAuthViewModel.cs" />
+    <Compile Include="UI\AppStartUI\SocialAuth\WebAuthHelper.cs" />
+    <Compile Include="UI\AddDocumentSearch\AddDocumentSearchControl.xaml.cs">
+      <DependentUpon>adddocumentsearchadddocumentsearchcontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\AddDocumentSearch\AddDocumentSearchViewModel.cs" />
+    <Compile Include="UI\AddDocumentSearch\Parser\ContainsIdParser.cs" />
+    <Compile Include="UI\AddDocumentSearch\Parser\IUrlParser.cs" />
+    <Compile Include="UI\AddDocumentSearch\Parser\NoIdParser.cs" />
+    <Compile Include="UI\AddDocumentSearch\Parser\UrlParsersFactory.cs" />
+    <Compile Include="UI\AddButton\AddButtonControl.xaml.cs">
+      <DependentUpon>addbuttonaddbuttoncontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\AddButton\AddButtonSizeController.cs" />
+    <Compile Include="UI\AddButton\AddButtonViewModel.cs" />
+    <Compile Include="TemplateSelectors\FoldersListTemplateSelector.cs" />
+    <Compile Include="TemplateSelectors\ActionsMenuStyleItemSelector.cs" />
+    <Compile Include="TemplateSelectors\SortMenuStyleItemSelector.cs" />
+    <Compile Include="TemplateSelectors\ProjectFolderTemplateSelector.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\Folder.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\FolderImageSourceCollection.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\Project.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\ProjectsIconsCollection.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\User\UserSubscription.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\User\User.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\ActionsHolder.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\FoldersStructure.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\FoldersStructureBuilder.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\MyBoxFoldersStructureBuilder.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\CloudFoldersStructureBuilder.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\InboxFoldersStructureBuilder.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\OutboxFoldersStructureBuilder.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\FoldersStructureBuilderFactory.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\Mask.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\ProjectsStructure.cs" />
+    <Compile Include="Model\Pojo\Data\Structure\Actions\ActionsConstants.cs" />
+    <Compile Include="Model\Pojo\Response\AmplitudeResponse.cs" />
+    <Compile Include="Model\Pojo\Response\CopyTemplateResponse.cs" />
+    <Compile Include="Model\Pojo\Response\PermissionResponse.cs" />
+    <Compile Include="Model\Pojo\Response\ProjectInfoResponse.cs" />
+    <Compile Include="Model\Pojo\Response\SaveAsResponse.cs" />
+    <Compile Include="Model\Pojo\Response\AgreementStatusResponse.cs" />
+    <Compile Include="Model\Pojo\Response\TOSStatusResponse.cs" />
+    <Compile Include="Model\Pojo\Response\UniqueFileNameResponse.cs" />
+    <Compile Include="Model\Pojo\Response\UploadResponse.cs" />
+    <Compile Include="Model\Pojo\Response\FillerResponse.cs" />
+    <Compile Include="Model\Pojo\Response\ProjectsStructureResponse.cs" />
+    <Compile Include="Model\Pojo\Response\FoldersStructureResponse.cs" />
+    <Compile Include="Model\Pojo\Response\SearchResponse.cs" />
+    <Compile Include="Model\Mapper\PostBodyBuilder.cs" />
+    <Compile Include="Model\Mapper\Delete\BaseProjectDeleteBodyBuilder.cs" />
+    <Compile Include="Model\Mapper\Delete\CommonProjectDeleteBodyBuilder.cs" />
+    <Compile Include="Model\Mapper\Delete\DeleteBodyBuildersFactory.cs" />
+    <Compile Include="Model\Mapper\Delete\FolderDeleteMapper.cs" />
+    <Compile Include="Model\Mapper\Delete\InBoxShareProjectDeleteBodyBuilder.cs" />
+    <Compile Include="Model\Mapper\Delete\OutBoxShareProjectDeleteBodyBuilder.cs" />
+    <Compile Include="Model\Mapper\Delete\ShareFolderDeleteMapper.cs" />
+    <Compile Include="Model\Mapper\Delete\TrashBinProjectDeleteBodyBuilder.cs" />
+    <Compile Include="Model\Api\ApiExceptionsFactory.cs" />
+    <Compile Include="Model\Api\CurlLoggingHandler.cs" />
+    <Compile Include="Model\Api\EditorConnector.cs" />
+    <Compile Include="Model\Api\ConfigsCallback.cs" />
+    <Compile Include="Model\Api\1EditorConnector.cs" />
+    <Compile Include="Model\Api\RestApiInterceptor.cs" />
+    <Compile Include="ViewModel\Handler\ClassicErrorHandler.cs" />
+    <Compile Include="ViewModel\Handler\ErrorHandler.cs" />
+    <Compile Include="Model\Analytics\AnalyticsManager.cs" />
+    <Compile Include="Model\Analytics\AnalyticsRestInterface.cs" />
+    <Compile Include="Model\Analytics\Events.cs" />
+    <Compile Include="Model\Amplitude\AmplitudeEvents.cs" />
+    <Compile Include="Model\Amplitude\AmplitudeEvent.cs" />
+    <Compile Include="Model\Amplitude\AmplitudeManager.cs" />
+    <Compile Include="Model\Amplitude\AmplitudeRestInterface.cs" />
+    <Compile Include="Exceptions\FileSizeException.cs" />
+    <Compile Include="Exceptions\FileUploadError.cs" />
+    <Compile Include="Exceptions\FillerRestException.cs" />
+    <Compile Include="Exceptions\SocialAuthError.cs" />
+    <Compile Include="Exceptions\UnauthorizedException.cs" />
+    <Compile Include="Exceptions\ValidationException.cs" />
+    <Compile Include="DI\DIManager.cs" />
+    <Compile Include="Dialogs\DialogFactory.cs" />
+    <Compile Include="Dialogs\SaveDocument\SaveDocumentDialog.xaml.cs">
+      <DependentUpon>savedocumentsavedocumentdialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SaveDocument\SaveDocumentDialogViewModel.cs" />
+    <Compile Include="Dialogs\SaveDocument\SaveDocumentType.cs" />
+    <Compile Include="Dialogs\Rename\RenameDialog.xaml.cs">
+      <DependentUpon>renamerenamedialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Rename\RenameDialogViewModel.cs" />
+    <Compile Include="Dialogs\Rename\Folder\RenameFolderDialogViewModel.cs" />
+    <Compile Include="Dialogs\Rename\Template\RenameTemplateDialogViewModel.cs" />
+    <Compile Include="Dialogs\Logout\LogoutDialogViewModel.cs" />
+    <Compile Include="Dialogs\YesNo\YesNoDialogViewModel.cs" />
+    <Compile Include="Dialogs\YesNo\YesNoDialog.xaml.cs">
+      <DependentUpon>yesnoyesnodialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Update\UpdateAppDialog.xaml.cs">
+      <DependentUpon>updateupdateappdialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Update\UpdateAppDialogViewModel.cs" />
+    <Compile Include="Dialogs\PrivacyNotice\PrivacyDialog.xaml.cs">
+      <DependentUpon>privacynoticeprivacydialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\PrivacyNotice\PrivacyDialogViewModel.cs" />
+    <Compile Include="Dialogs\Payment\PaymentDialogViewModel.cs" />
+    <Compile Include="Dialogs\GoToMyDocs\GoToMyDocsDialogViewModel.cs" />
+    <Compile Include="Dialogs\ForgotPassword\ForgotPasswordDialog.xaml.cs">
+      <DependentUpon>forgotpasswordforgotpassworddialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ForgotPassword\ForgotPasswordDialogViewModel.cs" />
+    <Compile Include="Dialogs\Error\ErrorDialogControl.xaml.cs">
+      <DependentUpon>errorerrordialogcontrol.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Error\ErrorDialogViewModel.cs" />
+    <Compile Include="Dialogs\EmptyTrashBin\EmptyTrashBinDialogViewModel.cs" />
+    <Compile Include="Dialogs\Dev\DevModeDialog.xaml.cs">
+      <DependentUpon>devdevmodedialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Dev\DevModeDialogViewModel.cs" />
+    <Compile Include="Dialogs\Delete\DeleteDialog.xaml.cs">
+      <DependentUpon>deletedeletedialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Delete\DeleteDialogViewModel.cs" />
+    <Compile Include="Dialogs\AddDocument\AddDocumentDialog.xaml.cs">
+      <DependentUpon>adddocumentadddocumentdialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AddDocument\AddDocumentDialogViewModel.cs" />
+    <Compile Include="Converters\CaseConverter.cs" />
+    <Compile Include="Converters\EmailPatternToBooleanConverter.cs" />
+    <Compile Include="Converters\InverseBooleanConverter.cs" />
+    <Compile Include="Converters\MainControlContentConverter.cs" />
+    <Compile Include="Converters\NumberToBooleanConverter.cs" />
+    <Compile Include="Converters\CredentialsConverter.cs" />
+    <Compile Include="Converters\BooleanVisibilityConverter.cs" />
+    <Compile Include="Converters\EmptyFolderToControlConverter.cs" />
+    <Compile Include="Converters\FolderToNameConverter.cs" />
+    <Compile Include="Converters\HasNewProjectsToColorConverter.cs" />
+    <Compile Include="Converters\NumberToVisibilityConverter.cs" />
+    <Compile Include="Converters\StringPatternToBooleanConverter.cs" />
+    <Compile Include="Common\AppLifecycleObserver.cs" />
+    <Compile Include="Common\LifecycleEventDispatcherControl.cs" />
+    <Compile Include="Common\PropertyNotifier.cs" />
+    <Compile Include="Commnands\RelayCommand.cs" />
+    <Compile Include="Commnands\SimpleCommand.cs" />
+    <Compile Include="Bus\BusManager.cs" />
+    <Compile Include="Bus\BusRouter.cs" />
+    <Compile Include="Bus\Router.cs" />
+    <Compile Include="Bus\RouterObserver.cs" />
+    <Compile Include="Bus\BackStackHandler.cs" />
+    <Compile Include="Bus\Refresh\RefreshConsumer.cs" />
+    <Compile Include="Bus\Refresh\RefreshDispatcher.cs" />
+    <Compile Include="AttachedProperties\ButtonAttachedProperties.cs" />
+    <Compile Include="AttachedProperties\ContextMenuAttachedProperties.cs" />
+    <Compile Include="AttachedProperties\DragAndDropAttachedProperties.cs" />
+    <Compile Include="AttachedProperties\FilleCheckBoxAttachedProperties.cs" />
+    <Compile Include="AttachedProperties\ListViewAttachedProperties.cs" />
+    <Compile Include="AttachedProperties\TabItemProperties.cs" />
+    <Compile Include="AttachedProperties\TextBoxAttachedProperties.cs" />
+    <Compile Include="XamlGeneratedNamespace\GeneratedInternalTypeHelper.cs" />
+    <Compile Include="obj\Release\AutoGeneratedRestApiInterface.cs" />
+    <Compile Include="Model\Api\2EditorConnector.cs" />
+    <Compile Include="Model\Analytics\AutoGeneratedAnalyticsRestInterface.cs" />
+    <Compile Include="Model\Amplitude\AutoGeneratedAmplitudeRestInterface.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
+    <Resource Include="resources\fonts\sf_ui_bold.ttf" />
+    <Resource Include="resources\fonts\sf_ui_light.ttf" />
+    <Resource Include="resources\fonts\sf_ui_medium.ttf" />
+    <Resource Include="resources\fonts\sf_ui_regular.ttf" />
+    <Resource Include="resources\fonts\sf_ui_thin.ttf" />
+    <Resource Include="resources\fonts\sf_ui_ultralight.ttf" />
+    <Resource Include="resources\images\actions\add_empty_pages_ic.png" />
+    <Resource Include="resources\images\actions\clear.png" />
+    <Resource Include="resources\images\actions\contact_sender.png" />
+    <Resource Include="resources\images\actions\copy.png" />
+    <Resource Include="resources\images\actions\copy_to_mydocs.png" />
+    <Resource Include="resources\images\actions\create_template.png" />
+    <Resource Include="resources\images\actions\delete.png" />
+    <Resource Include="resources\images\actions\email.png" />
+    <Resource Include="resources\images\actions\export.png" />
+    <Resource Include="resources\images\actions\fax.png" />
+    <Resource Include="resources\images\actions\info_doc.png" />
+    <Resource Include="resources\images\actions\l_2_f.png" />
+    <Resource Include="resources\images\actions\messenger_logo.png" />
+    <Resource Include="resources\images\actions\move.png" />
+    <Resource Include="resources\images\actions\notarize.png" />
+    <Resource Include="resources\images\actions\open.png" />
+    <Resource Include="resources\images\actions\print.png" />
+    <Resource Include="resources\images\actions\rename.png" />
+    <Resource Include="resources\images\actions\restore.png" />
+    <Resource Include="resources\images\actions\s_2_s.png" />
+    <Resource Include="resources\images\actions\save_as.png" />
+    <Resource Include="resources\images\actions\settings.png" />
+    <Resource Include="resources\images\actions\share.png" />
+    <Resource Include="resources\images\actions\sign.png" />
+    <Resource Include="resources\images\actions\sign_now.png" />
+    <Resource Include="resources\images\actions\sms.png" />
+    <Resource Include="resources\images\actions\tags.png" />
+    <Resource Include="resources\images\actions\template.png" />
+    <Resource Include="resources\images\actions\track.png" />
+    <Resource Include="resources\images\actions\upload.png" />
+    <Resource Include="resources\images\actions\viber_logo.png" />
+    <Resource Include="resources\images\actions\view.png" />
+    <Resource Include="resources\images\actions\whats_app_logo_1.png" />
+    <Resource Include="resources\images\adddocument\search.png" />
+    <Resource Include="resources\images\adddocument\upload.png" />
+    <Resource Include="resources\images\back.png" />
+    <Resource Include="resources\images\bell.png" />
+    <Resource Include="resources\images\bg.png" />
+    <Resource Include="resources\images\close.png" />
+    <Resource Include="resources\images\clouds\box.png" />
+    <Resource Include="resources\images\clouds\dropbox.png" />
+    <Resource Include="resources\images\clouds\gdrive.png" />
+    <Resource Include="resources\images\clouds\one_drive.png" />
+    <Resource Include="resources\images\doc_preview.png" />
+    <Resource Include="resources\images\email.png" />
+    <Resource Include="resources\images\empty_avatar.png" />
+    <Resource Include="resources\images\empty_trash.png" />
+    <Resource Include="resources\images\emptyfolders\empty_all_documents.png" />
+    <Resource Include="resources\images\emptyfolders\empty_email.png" />
+    <Resource Include="resources\images\emptyfolders\empty_encrypted.png" />
+    <Resource Include="resources\images\emptyfolders\empty_fax.png" />
+    <Resource Include="resources\images\emptyfolders\empty_folder.png" />
+    <Resource Include="resources\images\emptyfolders\empty_l2f.png" />
+    <Resource Include="resources\images\emptyfolders\empty_s2s.png" />
+    <Resource Include="resources\images\emptyfolders\empty_share.png" />
+    <Resource Include="resources\images\emptyfolders\empty_trashbin.png" />
+    <Resource Include="resources\images\emptyfolders\empty_unsorted.png" />
+    <Resource Include="resources\images\emptyfolders\empty_usps.png" />
+    <Resource Include="resources\images\facebook_logo.png" />
+    <Resource Include="resources\images\find_pdf.png" />
+    <Resource Include="resources\images\fingerprint.png" />
+    <Resource Include="resources\images\folders\folder_all_documents.png" />
+    <Resource Include="resources\images\folders\folder_custom.png" />
+    <Resource Include="resources\images\folders\folder_email.png" />
+    <Resource Include="resources\images\folders\folder_encrypted.png" />
+    <Resource Include="resources\images\folders\folder_faxes.png" />
+    <Resource Include="resources\images\folders\folder_l_2_f.png" />
+    <Resource Include="resources\images\folders\folder_notarize.png" />
+    <Resource Include="resources\images\folders\folder_shared.png" />
+    <Resource Include="resources\images\folders\folder_shared_with_me.png" />
+    <Resource Include="resources\images\folders\folder_sign_request.png" />
+    <Resource Include="resources\images\folders\folder_suggested_documents.png" />
+    <Resource Include="resources\images\folders\folder_templates.png" />
+    <Resource Include="resources\images\folders\folder_unsorted.png" />
+    <Resource Include="resources\images\folders\folder_usps.png" />
+    <Resource Include="resources\images\folders\signnow_folder.png" />
+    <Resource Include="resources\images\folders\smart_folder.png" />
+    <Resource Include="resources\images\google_logo.png" />
+    <Resource Include="resources\images\help.png" />
+    <Resource Include="resources\images\loading.png" />
+    <Resource Include="resources\images\localsearch\empty_search.png" />
+    <Resource Include="resources\images\localsearch\search_icon.png" />
+    <Resource Include="resources\images\localsearch\start_search.png" />
+    <Resource Include="resources\images\lock.png" />
+    <Resource Include="resources\images\logo.png" />
+    <Resource Include="resources\images\logo_orange.png" />
+    <Resource Include="resources\images\mark_all_as_read.png" />
+    <Resource Include="resources\images\menu.png" />
+    <Resource Include="resources\images\notificationstatuses\email.png" />
+    <Resource Include="resources\images\notificationstatuses\fax.png" />
+    <Resource Include="resources\images\notificationstatuses\l2f.png" />
+    <Resource Include="resources\images\notificationstatuses\message.png" />
+    <Resource Include="resources\images\notificationstatuses\s2s.png" />
+    <Resource Include="resources\images\notificationstatuses\share.png" />
+    <Resource Include="resources\images\notificationstatuses\sign_now.png" />
+    <Resource Include="resources\images\notificationstatuses\star.png" />
+    <Resource Include="resources\images\notificationstatuses\transfer.png" />
+    <Resource Include="resources\images\onboarding\onboarding_1.png" />
+    <Resource Include="resources\images\onboarding\onboarding_2.png" />
+    <Resource Include="resources\images\onboarding\onboarding_3.png" />
+    <Resource Include="resources\images\plus.png" />
+    <Resource Include="resources\images\privacy.png" />
+    <Resource Include="resources\images\projects\corrupted.png" />
+    <Resource Include="resources\images\projects\excel.png" />
+    <Resource Include="resources\images\projects\image.png" />
+    <Resource Include="resources\images\projects\pdf.png" />
+    <Resource Include="resources\images\projects\ppt.png" />
+    <Resource Include="resources\images\projects\template_icon.png" />
+    <Resource Include="resources\images\projects\txt.png" />
+    <Resource Include="resources\images\projects\word.png" />
+    <Resource Include="resources\images\refresh.png" />
+    <Resource Include="resources\images\search_result.png" />
+    <Resource Include="resources\images\selection_tick.png" />
+    <Resource Include="resources\images\sidemenu\close_menu.png" />
+    <Resource Include="resources\images\sidemenu\help.png" />
+    <Resource Include="resources\images\sidemenu\info.png" />
+    <Resource Include="resources\images\sidemenu\logout.png" />
+    <Resource Include="resources\images\sidemenu\my_account.png" />
+    <Resource Include="resources\images\sidemenu\open_menu.png" />
+    <Resource Include="resources\images\sidemenu\other_apps.png" />
+    <Resource Include="resources\images\sidemenu\payment.png" />
+    <Resource Include="resources\images\sidemenu\settings.png" />
+    <Resource Include="resources\images\sidemenu\support.png" />
+    <Resource Include="resources\images\sortby.png" />
+    <Resource Include="resources\images\statuses\status_done.png" />
+    <Resource Include="resources\images\statuses\status_failed.png" />
+    <Resource Include="resources\images\statuses\status_full_access.png" />
+    <Resource Include="resources\images\statuses\status_in_local_area.png" />
+    <Resource Include="resources\images\statuses\status_in_progress.png" />
+    <Resource Include="resources\images\statuses\status_in_transit.png" />
+    <Resource Include="resources\images\statuses\status_not_send.png" />
+    <Resource Include="resources\images\statuses\status_pending.png" />
+    <Resource Include="resources\images\statuses\status_re_routed.png" />
+    <Resource Include="resources\images\statuses\status_reject.png" />
+    <Resource Include="resources\images\statuses\status_returned_to_sender.png" />
+    <Resource Include="resources\images\statuses\status_scheduled.png" />
+    <Resource Include="resources\images\statuses\status_sent.png" />
+    <Resource Include="resources\images\statuses\status_sign.png" />
+    <Resource Include="resources\images\statuses\status_view_only.png" />
+    <Resource Include="resources\images\support.png" />
+    <Resource Include="resources\images\tabs\cloud.png" />
+    <Resource Include="resources\images\tabs\cloud_selected.png" />
+    <Resource Include="resources\images\tabs\inbox.png" />
+    <Resource Include="resources\images\tabs\inbox_selected.png" />
+    <Resource Include="resources\images\tabs\mybox.png" />
+    <Resource Include="resources\images\tabs\mybox_selected.png" />
+    <Resource Include="resources\images\tabs\outbox.png" />
+    <Resource Include="resources\images\tabs\outbox_selected.png" />
+    <Resource Include="resources\images\trash.png" />
+    <Resource Include="resources\images\update.png" />
+    <Resource Include="resources\images\upload_dialog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="app.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="dialogs\adddocument\adddocumentdialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="dialogs\delete\deletedialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="dialogs\dev\devmodedialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="dialogs\error\errordialogcontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="dialogs\forgotpassword\forgotpassworddialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="dialogs\privacynotice\privacydialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="dialogs\rename\renamedialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="dialogs\savedocument\savedocumentdialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="dialogs\update\updateappdialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="dialogs\yesno\yesnodialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="mainwindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\convertersresources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\strings\stringsresources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\styles\buttonstyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\styles\checkboxstyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\styles\foldersstyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\styles\fontsresources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\styles\listviewstyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\styles\projectsstyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\styles\scrollbarstyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\styles\tabsstyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="resources\styles\textboxstyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\addbutton\addbuttoncontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\adddocumentsearch\adddocumentsearchcontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\appstartui\login\logincontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\appstartui\signup\signupcontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\appstartui\socialauth\socialauthcontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\bottommenu\bottommenucontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\contextmenus\contextmenustyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\editor\editorcontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\emptyfolders\emptyfolder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\emptyfolders\emptyinboxemailfolder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\fileslist\fileslistcontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\findpdf\findpdfcontroll.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\justfolders\justfolderscontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\main\maincontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\mydocs\mydocscontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\onboarding\onboardingcontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\recents\recentscontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\sidemenu\sidemenucontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\splash\splashcontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\tabsfolders\tabsandfolderscontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\toolbar\toolbarcontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\tos\toscontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ui\trashbin\trashbincontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="utils\view\indicatorscontrol.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="utils\view\loader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="webwindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

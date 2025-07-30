@@ -1,0 +1,86 @@
+<UserControl x:Class="pdfFiller.UI.SideMenu.SideMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:pdfFiller.UI.SideMenu"
+             xmlns:prop="clr-namespace:pdfFiller.AttachedProperties"
+             xmlns:converters="clr-namespace:pdfFiller.Converters"
+             Width="auto" Background="#171717">
+  <FrameworkElement.DataContext>
+    <local:SideMenuViewModel/>
+  </FrameworkElement.DataContext>
+  <FrameworkElement.Resources>
+    <converters:BooleanVisibilityConverter x:Key="booleanVisibilityConverter"/>
+  </FrameworkElement.Resources>
+  <Grid x:Name="Container" Width="240">
+    <FrameworkElement.Style>
+      <Style TargetType="{x:Type Grid}">
+        <Style.Triggers>
+          <DataTrigger Binding="{Binding IsCollapsed}" Value="True">
+            <TriggerBase.EnterActions>
+              <BeginStoryboard>
+                <Storyboard>
+                  <DoubleAnimation Storyboard.TargetProperty="(Width)" From="240" To="72" Duration="0:0:0.3"/>
+                </Storyboard>
+              </BeginStoryboard>
+            </TriggerBase.EnterActions>
+            <TriggerBase.ExitActions>
+              <BeginStoryboard>
+                <Storyboard>
+                  <DoubleAnimation Storyboard.TargetProperty="(Width)" From="72" To="240" Duration="0:0:0.3"/>
+                </Storyboard>
+              </BeginStoryboard>
+            </TriggerBase.ExitActions>
+          </DataTrigger>
+        </Style.Triggers>
+      </Style>
+    </FrameworkElement.Style>
+    <DockPanel Margin="20 40 20 0" Grid.Column="1">
+      <StackPanel DockPanel.Dock="Top" Margin="0 0 0 16" Orientation="Horizontal">
+        <Ellipse Width="32" Height="32">
+          <Shape.Fill>
+            <ImageBrush ImageSource="{Binding ImageUrl}"/>
+          </Shape.Fill>
+        </Ellipse>
+        <StackPanel VerticalAlignment="Center" Margin="10 0 0 0" Orientation="Vertical">
+          <TextBlock Style="{StaticResource SideMenuTextStyle}" Width="150" Foreground="White"
+                     FontFamily="{DynamicResource Medium}" Text="{Binding Email}"/>
+          <TextBlock Style="{StaticResource SideMenuTextStyle}" Width="150" Foreground="#808080" FontSize="10"
+                     Text="{Binding User}"/>
+        </StackPanel>
+      </StackPanel>
+      <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+        <Button prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/SideMenu/my_account.png"
+                Style="{StaticResource SideMenuButton}" Content="{DynamicResource side_menu_my_account}"
+                Background="Transparent" Command="{Binding MyAccountCommand}"/>
+        <Button prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/SideMenu/payment.png"
+                Style="{StaticResource SideMenuButton}" Content="{DynamicResource side_menu_payment}"
+                Background="Transparent" Command="{Binding PaymentCommand}"/>
+        <Button prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/SideMenu/settings.png"
+                Style="{StaticResource SideMenuButton}" ContextMenu="{StaticResource SettingsMenu}"
+                prop:ContextMenuAttachedProperties.IsLeftClickContextMenu="True"
+                Content="{DynamicResource side_menu_settings}" Background="Transparent"
+                Visibility="{Binding IsSettingsButtonVisible, Converter={StaticResource booleanVisibilityConverter}}"/>
+        <Button prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/SideMenu/support.png"
+                Style="{StaticResource SideMenuButton}" Content="{DynamicResource side_menu_support}"
+                Background="Transparent" Command="{Binding SupportCommand}"/>
+      </StackPanel>
+      <StackPanel Margin="0 0 0 40" Orientation="Vertical" DockPanel.Dock="Bottom">
+        <Button prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/SideMenu/logout.png"
+                Style="{StaticResource SideMenuButton}" Content="{DynamicResource side_menu_logout}"
+                Background="Transparent" Command="{Binding LogoutCommand}"/>
+        <Label FontSize="8" Foreground="White" Content="{Binding AppVersion}"/>
+        <Button Margin="0 40 0 0" HorizontalAlignment="Left" Width="35" Height="35"
+                prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/SideMenu/open_menu.png"
+                RenderTransformOrigin=".5,.5" Style="{StaticResource SideMenuOpenCloseButton}"
+                Command="{Binding OpenCloseMenuCommand}">
+          <UIElement.RenderTransform>
+            <RotateTransform/>
+          </UIElement.RenderTransform>
+        </Button>
+      </StackPanel>
+      <StackPanel/>
+    </DockPanel>
+  </Grid>
+</UserControl>

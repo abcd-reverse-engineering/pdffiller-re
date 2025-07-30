@@ -1,0 +1,34 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:prop="clr-namespace:pdfFiller.AttachedProperties">
+  <Style x:Key="FillerCheckBox" TargetType="{x:Type CheckBox}">
+    <Setter Property="Control.Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type CheckBox}">
+          <Border BorderBrush="#ccc" BorderThickness="2" CornerRadius="17" Padding="4" Background="Transparent">
+            <WrapPanel Orientation="Horizontal" Width="auto">
+              <Border x:Name="v1" Background="#8bc34a" BorderBrush="Transparent" CornerRadius="12" BorderThickness="0">
+                <TextBlock x:Name="text_v1" TextAlignment="Center"
+                           Text="{TemplateBinding prop:FilleCheckBoxAttachedProperties.TextLeft}" Margin="34 5" FontSize="12"
+                           Foreground="#fff" FontWeight="Medium"/>
+              </Border>
+              <Border x:Name="v2" Background="#fff" BorderBrush="Transparent" CornerRadius="12" BorderThickness="0">
+                <TextBlock x:Name="text_v2" TextAlignment="Center"
+                           Text="{TemplateBinding prop:FilleCheckBoxAttachedProperties.TextRight}" Margin="34 5" FontSize="12"
+                           Foreground="#666" FontWeight="Medium"/>
+              </Border>
+            </WrapPanel>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="ToggleButton.IsChecked" Value="True">
+              <Setter TargetName="v1" Property="Border.Background" Value="Transparent"/>
+              <Setter TargetName="v2" Property="Border.Background" Value="#8bc34a"/>
+              <Setter TargetName="text_v1" Property="TextBlock.Foreground" Value="#666"/>
+              <Setter TargetName="text_v2" Property="TextBlock.Foreground" Value="#fff"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+</ResourceDictionary>

@@ -1,0 +1,40 @@
+<UserControl x:Class="pdfFiller.UI.FilesList.FilesListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:pdfFiller.UI.FilesList"
+             xmlns:utils="clr-namespace:pdfFiller.Utils.View"
+             xmlns:recents="clr-namespace:pdfFiller.UI.Recents"
+             xmlns:converters="clr-namespace:pdfFiller.Converters"
+             xmlns:prop="clr-namespace:pdfFiller.AttachedProperties"
+             Background="White">
+  <FrameworkElement.Resources>
+    <converters:FolderToNameConverter x:Key="folderToNameConverter"/>
+    <converters:EmptyFolderToControlConverter x:Key="emptyFolderToControlConverter"/>
+    <converters:BooleanVisibilityConverter x:Key="booleanVisibilityConverter"/>
+  </FrameworkElement.Resources>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid Visibility="{Binding IsRecentsVisible, Converter={StaticResource booleanVisibilityConverter}}">
+      <recents:RecentsControl Grid.Row="0"/>
+    </Grid>
+    <StackPanel Grid.Row="1" Orientation="Horizontal">
+      <TextBlock Margin="8 8 0 8" Foreground="#444" FontFamily="{DynamicResource Medium}" FontSize="9"
+                 Visibility="{Binding DocumentsCount, Converter={StaticResource numberToVisibilityConverter}}"
+                 Text="{Binding DocumentsCount}"/>
+      <TextBlock Margin="4 8 8 8" Foreground="#444" Text="{DynamicResource documents_found}"
+                 FontFamily="{DynamicResource Light}" FontSize="9"
+                 Visibility="{Binding DocumentsCount, Converter={StaticResource numberToVisibilityConverter}}"/>
+    </StackPanel>
+    <ListView Style="{StaticResource FillerListView}" Grid.Row="2"/>
+    <ContentControl Grid.Row="2"
+                    Content="{Binding EmptyFolder, Converter={StaticResource emptyFolderToControlConverter}}"/>
+    <utils:Loader Grid.Row="2"
+                  Visibility="{Binding IsLoading, Converter={StaticResource booleanVisibilityConverter}}"/>
+  </Grid>
+</UserControl>

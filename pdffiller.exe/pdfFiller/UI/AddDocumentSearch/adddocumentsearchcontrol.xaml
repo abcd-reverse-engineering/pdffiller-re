@@ -1,0 +1,40 @@
+<UserControl x:Class="pdfFiller.UI.AddDocumentSearch.AddDocumentSearchControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:pdfFiller.UI.AddDocumentSearch"
+             xmlns:prop="clr-namespace:pdfFiller.AttachedProperties"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:loader="clr-namespace:pdfFiller.Utils.View"
+             xmlns:webview="clr-namespace:pdfFiller.UI.WebView"
+             Background="White">
+  <i:Interaction.Triggers>
+    <i:EventTrigger EventName="Loaded">
+      <i:CallMethodAction MethodName="LoadData" TargetObject="{Binding}"/>
+    </i:EventTrigger>
+  </i:Interaction.Triggers>
+  <FrameworkElement.DataContext>
+    <local:AddDocumentSearchViewModel/>
+  </FrameworkElement.DataContext>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="40"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Border Background="Transparent" BorderThickness="0 0 0 1" BorderBrush="#eee">
+      <Grid>
+        <TextBlock FontSize="12" Text="{DynamicResource search_for_documents}" VerticalAlignment="Center"
+                   FontFamily="{DynamicResource Medium}" TextAlignment="Center" Grid.Column="0"
+                   Background="Transparent"
+                   prop:TextBoxAttachedProperties.OnTextChangeCommand="{Binding TextChangedCommand}"/>
+        <Button Style="{StaticResource ButtonWithIconLeft}" Content="{DynamicResource to_my_docs}"
+                Foreground="#444" HorizontalAlignment="Left" FontFamily="{DynamicResource Medium}"
+                prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/back.png"
+                BorderBrush="Transparent" Background="Transparent" Command="{Binding BackCommand}"/>
+      </Grid>
+    </Border>
+    <webview:WebView x:Name="Browser" Unloaded="Browser_Unloaded" Loaded="Browser_Loaded" Grid.Row="1"/>
+    <loader:Loader Grid.RowSpan="2" Visibility="{Binding IsLoading, Converter={StaticResource visibilityConverter}}"/>
+  </Grid>
+</UserControl>

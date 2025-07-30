@@ -1,0 +1,8 @@
+Newtonsoft.Json.dll
+MaterialDesignThemes.Wpf.dll
+MaterialDesignColors.dll
+AutoUpdater.NET.dll
+Castle.Core.dll
+DeviceId.dll
+DeviceId.Windows.dll
+DeviceId.Windows.Mmi.dll

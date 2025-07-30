@@ -1,0 +1,135 @@
+<UserControl x:Class="pdfFiller.UI.AppStartUI.SignUp.SignUpControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converter="clr-namespace:pdfFiller.Converters"
+             xmlns:prop="clr-namespace:pdfFiller.AttachedProperties"
+             xmlns:viewmodel="clr-namespace:pdfFiller.UI.AppStartUI.SignUp"
+             xmlns:utils="clr-namespace:pdfFiller.Utils.View"
+             Background="#fff">
+  <FrameworkElement.DataContext>
+    <viewmodel:SignUpViewModel/>
+  </FrameworkElement.DataContext>
+  <FrameworkElement.Resources>
+    <converter:CredentialsConverter x:Key="credentialsConverter"/>
+    <converter:BooleanVisibilityConverter x:Key="booleanVisibilityConverter"/>
+  </FrameworkElement.Resources>
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="3*"/>
+      <RowDefinition Height="50"/>
+    </Grid.RowDefinitions>
+    <Image Source="/pdfFiller;component/resources/images/bg.png" Grid.Column="0" Grid.Row="0" Stretch="Fill"/>
+    <Image Margin="0 10 0 20" Source="/pdfFiller;component/resources/images/logo.png" Grid.Column="0"
+           Grid.Row="0" MinWidth="80" MaxWidth="150" Stretch="Uniform"/>
+    <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+      <TextBlock Text="{DynamicResource sign_up}" HorizontalAlignment="Left" FontSize="28" FontWeight="Bold"
+                 Margin="0 0 0 1" FontFamily="{DynamicResource Bold}"/>
+      <TextBlock Text="{StaticResource sign_up_message}" HorizontalAlignment="Left" FontSize="11" Foreground="#444"
+                 MaxWidth="500" TextWrapping="Wrap" Margin="0 8 0 8" FontFamily="{DynamicResource Medium}"/>
+      <Grid>
+        <TextBox x:Name="Email" Foreground="#222" Tag="{DynamicResource sign_up_email_hint}"
+                 Style="{StaticResource CustomTextBox}" Height="30" Width="auto"/>
+        <Image Source="/pdfFiller;component/resources/images/email.png" Width="16" Height="14"
+               VerticalAlignment="Center" HorizontalAlignment="Left"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="93*"/>
+          <ColumnDefinition Width="11*"/>
+          <ColumnDefinition Width="24*"/>
+        </Grid.ColumnDefinitions>
+        <PasswordBox PasswordChanged="Password_PasswordChanged" x:Name="Password" Width="auto" Foreground="#222"
+                     Height="30" Tag="{DynamicResource sign_up_pass_hint}" VerticalContentAlignment="Center"
+                     Style="{StaticResource PasswordTextBox}" Grid.ColumnSpan="3" Margin="0,5,0,5">
+          <UIElement.InputBindings>
+            <KeyBinding Key="Return" Command="{Binding ButtonCommand}">
+              <InputBinding.CommandParameter>
+                <MultiBinding Converter="{StaticResource credentialsConverter}">
+                  <Binding ElementName="Email" Path="Text"/>
+                  <Binding ElementName="Password"/>
+                </MultiBinding>
+              </InputBinding.CommandParameter>
+            </KeyBinding>
+          </UIElement.InputBindings>
+        </PasswordBox>
+        <Image Source="/pdfFiller;component/resources/images/lock.png" Width="16" Height="14"
+               VerticalAlignment="Center" HorizontalAlignment="Left"/>
+      </Grid>
+      <TextBlock Text="{DynamicResource password_validation}" FontFamily="{DynamicResource Medium}"
+                 Foreground="#666" FontSize="10"/>
+      <Button x:Name="Register" Cursor="Hand" Content="{DynamicResource sign_up_button}" Margin=" 0 8"
+              Style="{StaticResource OrangeButton}" Command="{Binding ButtonCommand}">
+        <ButtonBase.CommandParameter>
+          <MultiBinding Converter="{StaticResource credentialsConverter}">
+            <Binding ElementName="Email" Path="Text"/>
+            <Binding ElementName="Password"/>
+          </MultiBinding>
+        </ButtonBase.CommandParameter>
+      </Button>
+      <StackPanel Orientation="Vertical" Width="510">
+        <StackPanel Orientation="Horizontal">
+          <TextBlock Text="{DynamicResource terms_of_service_p1_register}" FontSize="12" VerticalAlignment="Center"
+                     FontFamily="{DynamicResource Thin}"/>
+          <Button x:Name="Terms_of_Service" FontSize="12" VerticalAlignment="Center" Foreground="#248df6"
+                  Background="Transparent" Cursor="Hand" BorderBrush="Transparent" BorderThickness="0"
+                  Command="{Binding TermsOfServiceCommand}">
+            <TextBlock Text="{DynamicResource terms_of_service_p2}" TextDecorations="Underline"
+                       FontFamily="{DynamicResource Bold}"/>
+          </Button>
+          <TextBlock Margin="4 0 0 0" Text="{DynamicResource terms_of_service_p3}" FontSize="12"
+                     VerticalAlignment="Center" FontFamily="{DynamicResource Thin}"/>
+          <Button x:Name="Privacy_Policy" FontSize="12" VerticalAlignment="Center" Foreground="#248df6"
+                  Background="Transparent" Cursor="Hand" BorderBrush="Transparent" BorderThickness="0"
+                  Command="{Binding PrivacyPolicyCommand}">
+            <TextBlock Text="{DynamicResource terms_of_service_p4}" TextDecorations="Underline"
+                       FontFamily="{DynamicResource Bold}"/>
+          </Button>
+        </StackPanel>
+        <TextBlock Text="{DynamicResource terms_of_service_p5}" FontSize="12" VerticalAlignment="Center"
+                   FontFamily="{DynamicResource Thin}"/>
+      </StackPanel>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="auto"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Height="1" Stroke="#ddd" Grid.Column="0"/>
+        <Label Content="{DynamicResource or_continue_with}" Grid.Column="1" FontSize="10"
+               FontFamily="{DynamicResource Medium}" Foreground="#888" Margin="8 0"/>
+        <Rectangle Height="1" Stroke="#ddd" Grid.Column="2"/>
+      </Grid>
+      <Grid Margin="0 8 0 0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Column="0" ColumnSpan="2">
+          <Button x:Name="Facebook" Margin="0 0 4 0" Cursor="Hand" Content="Facebook" Foreground="#1878f2"
+                  Style="{StaticResource AuthButton}" Grid.Column="2" Command="{Binding FacebookAuth}"/>
+          <Image HorizontalAlignment="Left" Margin="20 0 0 0"
+                 Source="/pdfFiller;component/resources/images/facebook_logo.png" Width="16" Height="16"/>
+        </Grid>
+      </Grid>
+    </StackPanel>
+    <WrapPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center"
+               VerticalAlignment="Bottom" Margin="0 10">
+      <TextBlock Text="{DynamicResource have_an_account}" FontSize="18" Foreground="#444444" Margin="0 0 8 0"
+                 VerticalAlignment="Center" FontFamily="Microsoft YaHei UI Light"/>
+      <Button x:Name="GetStarted" FontSize="18" FontWeight="Medium" VerticalAlignment="Center"
+              Foreground="#248df6" Background="Transparent" Cursor="Hand" BorderBrush="Transparent"
+              BorderThickness="0" Command="{Binding RouteToLoginCommand}">
+        <TextBlock Text="{DynamicResource login_v2}" TextDecorations="Underline" FontFamily="{DynamicResource Bold}"/>
+      </Button>
+    </WrapPanel>
+    <utils:Loader Loaded="Loader_Loaded" Grid.RowSpan="3"
+                  Visibility="{Binding IsLoading, Converter={StaticResource booleanVisibilityConverter}}"/>
+  </Grid>
+</UserControl>

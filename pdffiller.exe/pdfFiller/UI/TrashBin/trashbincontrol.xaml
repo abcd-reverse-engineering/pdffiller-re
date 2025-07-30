@@ -1,0 +1,52 @@
+<UserControl x:Class="pdfFiller.UI.TrashBin.TrashBinControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:pdfFiller.UI.TrashBin"
+             xmlns:folders="clr-namespace:pdfFiller.UI.JustFolders"
+             xmlns:fileList="clr-namespace:pdfFiller.UI.FilesList"
+             xmlns:converters="clr-namespace:pdfFiller.Converters"
+             xmlns:toolbar="clr-namespace:pdfFiller.UI.Toolbar"
+             xmlns:prop="clr-namespace:pdfFiller.AttachedProperties"
+             Background="#fff">
+  <FrameworkElement.Resources>
+    <converters:FolderToNameConverter x:Key="folderToNameConverter"/>
+    <converters:EmptyFolderToControlConverter x:Key="emptyFolderToControlConverter"/>
+    <converters:BooleanVisibilityConverter x:Key="booleanVisibilityConverter"/>
+    <local:TrashBinFilesListViewModel x:Key="TrashBinFilesViewModel"/>
+    <local:TrashBinToolbarViewModel x:Key="TrashBinToolbarViewModel"/>
+    <local:TrashBinFoldersViewModel x:Key="TrashBinFoldersViewModel"/>
+  </FrameworkElement.Resources>
+  <FrameworkElement.DataContext>
+    <local:TrashBinViewModel/>
+  </FrameworkElement.DataContext>
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="auto"/>
+      <ColumnDefinition Width="3*"/>
+    </Grid.ColumnDefinitions>
+    <Grid Column="0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      <Button Style="{StaticResource ButtonWithIcon}" Background="Transparent" VerticalAlignment="Center"
+              Margin="8" Cursor="Hand" HorizontalAlignment="Left" BorderBrush="Transparent"
+              prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/back.png"
+              Command="{Binding CloseCommand}"/>
+      <TextBlock Text="{DynamicResource trash_bin}" VerticalAlignment="Center" FontFamily="{DynamicResource Bold}"
+                 HorizontalAlignment="Center"/>
+      <folders:JustFoldersControl Grid.Column="0" Grid.Row="1" DataContext="{StaticResource TrashBinFoldersViewModel}"/>
+    </Grid>
+    <GridSplitter Grid.Column="0" Width="2" Background="#eee"/>
+    <Grid Column="2">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      <toolbar:ToolbarControl Grid.Row="0" DataContext="{StaticResource TrashBinToolbarViewModel}"/>
+      <fileList:FilesListControl Grid.Row="1" DataContext="{StaticResource TrashBinFilesViewModel}"/>
+    </Grid>
+  </Grid>
+</UserControl>

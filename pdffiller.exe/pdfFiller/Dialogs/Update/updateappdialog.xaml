@@ -1,0 +1,39 @@
+<UserControl x:Class="pdfFiller.Dialogs.Update.UpdateAppDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:pdfFiller.Dialogs.Update"
+             Background="White" MaxWidth="620">
+  <Border Padding="16" CornerRadius="4">
+    <Grid VerticalAlignment="Center">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto"/>
+        <RowDefinition Height="auto"/>
+        <RowDefinition Height="auto"/>
+      </Grid.RowDefinitions>
+      <TextBlock Text="{StaticResource update_dialog_title}" FontFamily="{DynamicResource Bold}" FontSize="18"
+                 TextWrapping="Wrap" TextAlignment="Center" Margin="0 16 0 0" Foreground="#222"
+                 HorizontalAlignment="Left"/>
+      <TextBlock Grid.Row="1" Margin="0 12" TextWrapping="Wrap" TextAlignment="Center" Foreground="#414141"
+                 FontFamily="{DynamicResource Medium}" FontSize="12" HorizontalAlignment="Left"
+                 Text="{Binding Message}"/>
+      <Grid Row="2" Margin="0 16 0 8">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Height="40" Foreground="#222" Background="#eee" Cursor="Hand"
+                HorizontalAlignment="Left" Content="Skip this version" Style="{StaticResource AuthButton}"
+                Command="{Binding SkipCommand}"/>
+        <Button Margin="8" Grid.Column="2" Height="40" Foreground="#222" Background="#eee"
+                Content="Remind me later" Style="{StaticResource OrangeButton}"
+                Command="{Binding RemindLaterCommand}"/>
+        <Button Grid.Column="3" Height="40" Content="Install Update" Style="{StaticResource OrangeButton}"
+                Command="{Binding UpdateCommand}"/>
+      </Grid>
+    </Grid>
+  </Border>
+</UserControl>

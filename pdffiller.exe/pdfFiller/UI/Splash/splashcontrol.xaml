@@ -1,0 +1,36 @@
+<UserControl x:Class="pdfFiller.UI.Splash.SplashControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:pdfFiller.UI.Splash"
+             xmlns:utils="clr-namespace:pdfFiller.Utils.View"
+             xmlns:converter="clr-namespace:pdfFiller.Converters"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             Background="White">
+  <i:Interaction.Triggers>
+    <i:EventTrigger EventName="Loaded">
+      <i:CallMethodAction MethodName="LoadData" TargetObject="{Binding}"/>
+    </i:EventTrigger>
+  </i:Interaction.Triggers>
+  <FrameworkElement.DataContext>
+    <local:SplashViewModel/>
+  </FrameworkElement.DataContext>
+  <FrameworkElement.Resources>
+    <converter:BooleanVisibilityConverter x:Key="booleanVisibilityConverter"/>
+  </FrameworkElement.Resources>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Image Width="85" Height="68" Grid.RowSpan="2"
+           Source="/pdfFiller;component/resources/images/logo_orange.png" Stretch="Fill"/>
+    <utils:Loader Grid.Row="1"
+                  Visibility="{Binding IsLoading, Converter={StaticResource booleanVisibilityConverter}}"/>
+    <Button Grid.Row="1" Style="{StaticResource OrangeButton}" Width="150" Height="30"
+            Content="{DynamicResource refresh}"
+            Visibility="{Binding NoConnection, Converter={StaticResource booleanVisibilityConverter}}"
+            Command="{Binding RefreshCommand}"/>
+  </Grid>
+</UserControl>

@@ -1,0 +1,47 @@
+<UserControl x:Class="pdfFiller.UI.TabsFolders.TabsAndFoldersControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewmodels="clr-namespace:pdfFiller.UI.TabsFolders"
+             xmlns:converters="clr-namespace:pdfFiller.Converters"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:utils="clr-namespace:pdfFiller.Utils.View"
+             Background="White">
+  <i:Interaction.Triggers>
+    <i:EventTrigger EventName="Loaded">
+      <i:CallMethodAction MethodName="LoadData" TargetObject="{Binding}"/>
+    </i:EventTrigger>
+  </i:Interaction.Triggers>
+  <FrameworkElement.DataContext>
+    <viewmodels:TabsAndFoldersViewModel/>
+  </FrameworkElement.DataContext>
+  <FrameworkElement.Resources>
+    <converters:FolderToNameConverter x:Key="folderToNameConverter"/>
+    <converters:EmptyFolderToControlConverter x:Key="emptyFolderToControlConverter"/>
+    <converters:BooleanVisibilityConverter x:Key="booleanVisibilityConverter"/>
+  </FrameworkElement.Resources>
+  <Grid>
+    <TabControl ItemContainerStyle="{StaticResource TabsStyle}" Grid.Column="0" Background="#fff"
+                BorderThickness="0" BorderBrush="Transparent" ItemsSource="{Binding Tabs}"
+                SelectedItem="{Binding Path=SelectedTab, Mode=TwoWay}">
+      <ItemsControl.ItemTemplate>
+        <DataTemplate DataType="data:PdfFillerTab">
+          <TextBlock/>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+      <TabControl.ContentTemplate>
+        <DataTemplate>
+          <DockPanel>
+            <utils:ListViewSelectionItemChangedOnMouseUp ItemContainerStyle="{StaticResource FoldersListViewBase}"
+                                                         ItemTemplateSelector="{StaticResource FoldersTemplateDelegate}" BorderThickness="0"
+                                                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="true"
+                                                         Focusable="false" VerticalAlignment="Stretch" BorderBrush="Transparent"
+                                                         ItemsSource="{Binding Folders}" SelectedItem="{Binding SelectedFolder, Mode=TwoWay}"/>
+          </DockPanel>
+        </DataTemplate>
+      </TabControl.ContentTemplate>
+    </TabControl>
+    <utils:Loader Visibility="{Binding IsLoading, Converter={StaticResource booleanVisibilityConverter}}"/>
+  </Grid>
+</UserControl>

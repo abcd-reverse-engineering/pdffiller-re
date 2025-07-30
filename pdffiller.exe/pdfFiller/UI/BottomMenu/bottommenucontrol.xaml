@@ -1,0 +1,29 @@
+<UserControl x:Class="pdfFiller.UI.BottomMenu.BottomMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:pdfFiller.UI.BottomMenu"
+             xmlns:prop="clr-namespace:pdfFiller.AttachedProperties"
+             Background="White">
+  <FrameworkElement.DataContext>
+    <local:BottomMenuViewModel/>
+  </FrameworkElement.DataContext>
+  <Grid Background="#f7f7f7">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+      <Button Style="{StaticResource BottomMenuButtonStyle}" Content="{DynamicResource trash_bin}"
+              prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/trash.png"
+              Command="{Binding TrashBinCommand}" IsEnabled="{Binding IsTrashBinEnabled}"/>
+      <Button Style="{StaticResource BottomMenuButtonStyle}" Content="{DynamicResource find_pdf}"
+              prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/find_pdf.png"
+              Command="{Binding FinPdfCommand}"/>
+    </StackPanel>
+    <Button Content="{DynamicResource refresh}" Style="{StaticResource ButtonWithIconLeft}"
+            prop:ButtonAttachedProperties.ButtonIcon="/pdfFiller;component/Resources/Images/refresh.png"
+            FontSize="11" Background="Transparent" BorderBrush="Transparent" Cursor="Hand"
+            prop:ButtonAttachedProperties.ButtonIconHeight="12"
+            prop:ButtonAttachedProperties.ButtonIconWidth="12" VerticalAlignment="Center"
+            HorizontalAlignment="Left" Margin="0 0 16 0" FontFamily="{DynamicResource Medium}"
+            Foreground="#414141" Command="{Binding RefreshCommand}"/>
+  </Grid>
+</UserControl>

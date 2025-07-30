@@ -1,0 +1,20 @@
+<Window x:Class="pdfFiller.WebWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pdfFiller"
+        xmlns:webview="clr-namespace:pdfFiller.UI.WebView"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:prop="clr-namespace:pdfFiller.AttachedProperties"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        Title="pdfFiller" Height="600" Width="1200" WindowStartupLocation="CenterScreen" Background="White">
+  <i:Interaction.Triggers>
+    <i:EventTrigger EventName="Loaded">
+      <i:CallMethodAction MethodName="LoadData" TargetObject="{Binding}"/>
+    </i:EventTrigger>
+  </i:Interaction.Triggers>
+  <md:DialogHost Identifier="WebRootDialog">
+    <webview:WebView x:Name="Browser" Unloaded="Browser_Unloaded" Grid.Row="1"/>
+  </md:DialogHost>
+</Window>

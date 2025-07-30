@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:pdfFiller.Converters"
+                    xmlns:local="clr-namespace:pdfFiller.Resources">
+  <converter:BooleanVisibilityConverter x:Key="visibilityConverter"/>
+  <converter:NumberToVisibilityConverter x:Key="numberToVisibilityConverter"/>
+  <converter:NumberToBooleanConverter x:Key="numberToBooleanConverter"/>
+  <converter:EmailPatternToBooleanConverter x:Key="emailToBooleanConverter"/>
+  <converter:CaseConverter x:Key="caseConverter"/>
+  <converter:InverseBooleanConverter x:Key="inverseBooleanConverter"/>
+</ResourceDictionary>
